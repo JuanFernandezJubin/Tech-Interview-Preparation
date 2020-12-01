@@ -9,11 +9,11 @@ function FindNeedle(needle, haystack) {
       // cuando no hay match cortamos el ciclo del needle y continuamos con le haystack
       if(haystack[i + j] !== needle[j]) break
       // si terminamos de recorrer la needle devolvemos true
-      if(j + 1 === needle.length) return true
+      if(j + 1 === needle.length) return i
     }
   }
-  //si terminamos de recorrer el ciclo del haystack retornamos false
-  return false
+  //si terminamos de recorrer el ciclo del haystack retornamos -1
+  return -1
 }
 
 //Complejidad Temporal : O(N*M)
@@ -30,10 +30,10 @@ function findNeedle2(haystack, needle){
   for (let i = 0; i < haystack.length; i += 1) {
       // matcheamos con slice 
       if (haystack.slice(i, i + needle.length) === needle) {
-          return true;
+          return i;
       }
   }
-  return false;
+  return -1;
 }
 
 //Misma complejidad temporal y espacial
