@@ -19,5 +19,9 @@ const mdArraySum = (array) => {
 
 //ALternativa 2 / in one line
 
-const mdArraySum2 = array =>    
-array.reduce((total, element) => total + (Array.isArray(element) ? mdArraySum2(element) : element), 0)
+const mdArraySum2 = array => 
+//Utilizo reduce, recibe dos parametros, el "reducer" y el "incial"   
+//si el element es un arreglo utilizo recursividad sino tomo el elemento y lo sumo al acumulador
+array.reduce((acc, el) => acc + (Array.isArray(el) ? mdArraySum2(el) : el), 0)
+
+//Sigue las mismas complejidades que la primer alternativa
