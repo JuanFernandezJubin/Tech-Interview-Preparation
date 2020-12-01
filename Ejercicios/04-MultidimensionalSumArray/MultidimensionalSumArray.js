@@ -19,9 +19,13 @@ const mdArraySum = (array) => {
 
 //ALternativa 2 / in one line
 
-const mdArraySum2 = array => 
-//Utilizo reduce, recibe dos parametros, el "reducer" y el "incial"   
-//si el element es un arreglo utilizo recursividad sino tomo el elemento y lo sumo al acumulador
-array.reduce((acc, el) => acc + (Array.isArray(el) ? mdArraySum2(el) : el), 0)
+const mdArraySum2 = array =>
+  //Utilizo reduce, recibe dos parametros, el "reducer" y el "incial"   
+  //si el element es un arreglo utilizo recursividad sino tomo el elemento y lo sumo al acumulador
+  array.reduce((acc, el) => acc + (Array.isArray(el) ? mdArraySum2(el) : el), 0)
 
 //Sigue las mismas complejidades que la primer alternativa
+
+//Una variación de este ejercicio es pasar un array Multi-dimensional a un array plano
+const flat = (array) =>
+  array.reduce((acc,el) => acc.concat(el),[])
